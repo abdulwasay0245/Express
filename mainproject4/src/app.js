@@ -1,5 +1,6 @@
 import cookieParser from 'cookie-parser';
 import express from 'express';
+import cors from 'cors'
 
 const app = express();
 
@@ -11,5 +12,12 @@ app.use(cors({
     credentials: true,
 }))
 app.use(cookieParser())
+
+
+//import routes
+import router from './routes/user.routes.js';
+//routes decleration
+app.use("/api/v1/users", router);
+
 
 export { app }
